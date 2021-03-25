@@ -29,6 +29,7 @@ function Todo() {
 			})
 			.then(({ data, headers: { link } }) => {
 				setTodos({ ...todos, isLoading: false, data })
+				debugger
 				setPageLinks(parse(link))
 			})
 			.catch((err) => {
