@@ -5,9 +5,7 @@ const TodoInput = ({ handleSubmit }) => {
 	const [text, setText] = useState('')
 
 	const onSubmit = (e) => {
-		e.preventDefault()
-		handleSubmit(text)
-		setText('')
+		// define function
 	}
 	return (
 		<>

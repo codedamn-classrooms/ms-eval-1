@@ -18,75 +18,19 @@ function Todo() {
 	const [pageLinks, setPageLinks] = useState({})
 
 	const getTodos = (page = 1, limit = 5) => {
-		setTodos({ ...todos, isLoading: true, isError: false })
+		// define function
+	}
 
-		axios
-			.get(`https://json-server-mocker-masai.herokuapp.com/tasks`, {
-				params: {
-					_page: page,
-					_limit: limit
-				}
-			})
-			.then(({ data, headers: { link } }) => {
-				setTodos({ ...todos, isLoading: false, data })
-				debugger
-				setPageLinks(parse(link))
-			})
-			.catch((err) => {
-				setTodos({ ...todos, isLoading: false, isError: true })
-				// manage error
-			})
-	}
 	const handleAdd = (title) => {
-		const payload = {
-			title,
-			status: false
-		}
-		setTodos({ ...todos, isLoading: true, isError: false })
-		return (
-			axios
-				.post('https://json-server-mocker-masai.herokuapp.com/tasks', payload)
-				.then((res) => {
-					return getTodos(page)
-				})
-				// can do .then if required
-				.catch((err) => {
-					setTodos({ ...todos, isLoading: false, isError: true })
-					// manage error
-				})
-		)
+		// define function
 	}
+
 	const handleToggle = (id, status) => {
-		setTodos({ ...todos, isLoading: true, isError: false })
-		return (
-			axios
-				.patch(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`, {
-					status: !status
-				})
-				.then((res) => {
-					getTodos(page)
-				})
-				// can do .then if required
-				.catch((err) => {
-					setTodos({ ...todos, isLoading: false, isError: true })
-					// manage error
-				})
-		)
+		// define function
 	}
+
 	const handleDelete = (id) => {
-		setTodos({ ...todos, isLoading: true, isError: false })
-		return (
-			axios
-				.delete(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`)
-				.then(() => {
-					getTodos(page)
-				})
-				// can do .then if required
-				.catch((err) => {
-					setTodos({ ...todos, isLoading: false, isError: true })
-					// manage error
-				})
-		)
+		// define function
 	}
 
 	useEffect(() => {
@@ -103,8 +47,7 @@ function Todo() {
 				currentPage={page}
 				pageLinks={pageLinks !== null && pageLinks}
 				onChange={({ _limit, _page }) => {
-					getTodos(_page, _limit)
-					setPage(Number(_page))
+					// define function
 				}}
 			/>
 		</div>
