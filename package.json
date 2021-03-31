@@ -9,7 +9,6 @@
   "main": "src/index.js",
   "dependencies": {
     "axios": "0.21.1",
-    "json-server": "^0.16.3",
     "parse-link-header": "1.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
@@ -23,8 +22,7 @@
     "snowpack": "3.1.2"
   },
   "scripts": {
-    "start": "yarn server & snowpack dev",
-    "server": "json-server --watch db.json --port 5050"
+    "start": "snowpack dev"
   },
   "browserslist": [
     ">0.2%",
