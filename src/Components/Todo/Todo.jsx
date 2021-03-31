@@ -21,7 +21,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 
 		return axios
-			.get(`http://localhost:5050/tasks`, {
+			.get(`https://json-server-mocker-masai.herokuapp.com/tasks`, {
 				params: {
 					_page: page,
 					_limit: limit
@@ -44,7 +44,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.post('http://localhost:5050/tasks', payload)
+				.post('https://json-server-mocker-masai.herokuapp.com/tasks', payload)
 				.then((res) => {
 					return getTodos(page)
 				})
@@ -59,7 +59,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.patch(`http://localhost:5050/tasks/${id}`, {
+				.patch(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`, {
 					status: !status
 				})
 				.then((res) => {
@@ -76,7 +76,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.delete(`http://localhost:5050/tasks/${id}`)
+				.delete(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`)
 				.then(() => {
 					getTodos(page)
 				})
