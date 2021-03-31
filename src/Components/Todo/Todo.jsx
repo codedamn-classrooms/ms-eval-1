@@ -20,8 +20,8 @@ function Todo() {
 	const getTodos = (page = 1, limit = 5) => {
 		setTodos({ ...todos, isLoading: true, isError: false })
 
-		return axios
-			.get(`http://localhost:5050/tasks`, {
+		axios
+			.get(`https://json-server-mocker-masai.herokuapp.com/tasks`, {
 				params: {
 					_page: page,
 					_limit: limit
@@ -44,7 +44,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.post('http://localhost:5050/tasks', payload)
+				.post('https://json-server-mocker-masai.herokuapp.com/tasks', payload)
 				.then((res) => {
 					return getTodos(page)
 				})
@@ -59,7 +59,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.patch(`http://localhost:5050/tasks/${id}`, {
+				.patch(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`, {
 					status: !status
 				})
 				.then((res) => {
@@ -76,7 +76,7 @@ function Todo() {
 		setTodos({ ...todos, isLoading: true, isError: false })
 		return (
 			axios
-				.delete(`http://localhost:5050/tasks/${id}`)
+				.delete(`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`)
 				.then(() => {
 					getTodos(page)
 				})
@@ -98,7 +98,6 @@ function Todo() {
 
 			<TodoList handleToggle={handleToggle} handleDelete={handleDelete} data={todos.data} />
 			<div className={styles.spinnerContainer}>{todos.isLoading && <Spinner />}</div>
-			{todos.isError && <div data-testid="error-tasks">Error</div>}
 			<Pagination
 				currentPage={page}
 				pageLinks={pageLinks !== null && pageLinks}
